@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+
+    <link rel="stylesheet" href="pag.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="headHomePage">
+    <img src="Loghi/logoD.png" class="logo" alt="Logo agenzia">
+</header>
+
+<section class="slogan">
+    <button class="menu-btn" onclick="apriMenu()">☰</button>
+    <p>Non solo muri, ma nuovi inizi</p>
+</section>
+
+<nav class="sidebar" id="sidebar">
+    <button class="close-btn" onclick="chiudiMenu()">✖</button>
+    <a href="ChiSiamo.html">Chi siamo</a>
+    <a href="ComeContattarci.html">Come contattarci</a>
+    <a href="Catalogo.html">Catalogo</a>
+</nav>
+
+<section class="invito">
+    <p>
+        Stai cercando casa? È il momento giusto!<br><br>
+
+        Scopri le nostre migliori soluzioni in affitto:<br>
+        Appartamenti, ville, monolocali e soluzioni per studenti e famiglie.<br><br>
+
+        ✨ Contratti chiari e sicuri<br>
+        ✨ Assistenza dedicata in ogni fase<br>
+        ✨ Immobili selezionati e verificati<br>
+        ✨ Supporto completo fino alla consegna delle chiavi<br><br>
+
+        Non perdere l’occasione di trovare la casa perfetta per te!<br><br>
+
+        📍 Vieni a trovarci in agenzia<br>
+        📞 Oppure prenota una visita oggi stesso<br>
+        📩 Chiedi informazioni al nostro staff
+    </p>
+</section>
+
+<section class="search-section">
+
+  <h2>Cerca  la zona</h2>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Inserisci la zona (es. Milano)">
+    <button onclick="cercaZona()">Cerca</button>
+  </div>
+
+  <div id="risultato-container"></div>
+
+</section>
+
+
+
+
+<section class="pro-wrapper">
+
+  <!-- PIÙ RICERCATI -->
+  <section class="pro-box">
+    <div class="pro-header">
+      <h2>Più Ricercati</h2>
+      <div class="arrows">
+        <button onclick="scrollBox('ricercati', -1)">‹</button>
+        <button onclick="scrollBox('ricercati', 1)">›</button>
+      </div>
+    </div>
+
+    <div class="pro-scroll" id="ricercati">
+      <div class="pro-card">
+        <a href="Napoli.html"><img src="https://lombardo-geosystems.it/static/webshots/15/lombardo-geosystems.it-mappa-Napoli.png"></a>
+        <p>Napoli</p>
+      </div>
+      <div class="pro-card">
+        <a href="Grottaminarda.html"><img src="https://lombardo-geosystems.it/static/webshots/15/lombardo-geosystems.it-mappa-Grottaminarda.png"></a>
+        <p>Grottaminarda</p>
+      </div>
+      <div class="pro-card">
+        <a href=" milano.html"><img src="https://lombardo-geosystems.it/static/webshots/03/lombardo-geosystems.it-mappa-Milano.png"></a>
+        <p>Milano</p>
+      </div>
+      <div class="pro-card">
+        <a href="roma.html"><img src="https://lombardo-geosystems.it/static/webshots/12/lombardo-geosystems.it-mappa-Roma.png"></a>
+        <p>Roma</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ULTIMI PROGETTI -->
+  <section class="pro-box">
+    <div class="pro-header">
+      <h2>Ultimi Progetti</h2>
+      <div class="arrows">
+        <button onclick="scrollBox('progetti', -1)">‹</button>
+        <button onclick="scrollBox('progetti', 1)">›</button>
+      </div>
+    </div>
+
+    <div class="pro-scroll" id="progetti">
+      <div class="pro-card">
+        <a href="progettoCorso.html"><img src="Immagini/progCorso.jpg"></a>
+        <p>€1300 Villa urbana, Via ... n* , città... </p>
+      </div>
+      <div class="pro-card">
+        <a href="progettoNegozio.html"><img src="Immagini/negozioEsterni.png"></a>
+        <p>€1500 Immobile commmerciale, via ... n*,città...</p>
+      </div>
+      <div class="pro-card">
+        <a href="progettoCasa.html"><img src="Immagini/progCasa.png.jpg"></a>
+        <p>€400 abitazione in centro storico, Via... n*, città...</p>
+      </div> 
+      <div class="pro-card">
+        <img src="Immagini/Prog0img.png">
+        <p>Aggiungi Progetto</p>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<section class="reviews-section">
+  <h2>Recensioni dei nostri clienti</h2>
+
+  <!-- Statistiche recensioni -->
+  <div class="review-stats">
+    <p id="review-count">Recensioni: 0</p>
+    <p id="review-average">Valutazione media: 0 ⭐</p>
+  </div>
+
+  <!-- Contenitore per le recensioni -->
+  <div id="reviews-container">
+    <!-- Recensioni vecchie già presenti -->
+    <div class="review">
+      <p><strong>Giulia R.</strong> ⭐⭐⭐⭐⭐</p>
+      <p>Servizio eccellente, molto professionali e disponibili!</p>
+      <button class="delete-btn" onclick="eliminaRecensione(this)">Elimina</button>
+    </div>
+    <div class="review">
+      <p><strong>Luca M.</strong> ⭐⭐⭐⭐</p>
+      <p>Buona esperienza, appartamento consegnato come promesso.</p>
+      <button class="delete-btn" onclick="eliminaRecensione(this)">Elimina</button>
+    </div>
+  </div>
+
+  <!-- Modulo per inserire nuova recensione -->
+  <form id="review-form">
+    <input type="text" id="review-name" placeholder="Il tuo nome" required>
+    <textarea id="review-text" placeholder="Scrivi la tua recensione..." required></textarea>
+
+    <!-- Stelle cliccabili -->
+    <div class="star-rating">
+  <svg class="star" data-value="1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polygon points="12,2 15,9 22,9 17,14 18.5,21 12,17 5.5,21 7,14 2,9 9,9"/>
+  </svg>
+  <svg class="star" data-value="2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polygon points="12,2 15,9 22,9 17,14 18.5,21 12,17 5.5,21 7,14 2,9 9,9"/>
+  </svg>
+  <svg class="star" data-value="3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polygon points="12,2 15,9 22,9 17,14 18.5,21 12,17 5.5,21 7,14 2,9 9,9"/>
+  </svg>
+  <svg class="star" data-value="4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polygon points="12,2 15,9 22,9 17,14 18.5,21 12,17 5.5,21 7,14 2,9 9,9"/>
+  </svg>
+  <svg class="star" data-value="5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polygon points="12,2 15,9 22,9 17,14 18.5,21 12,17 5.5,21 7,14 2,9 9,9"/>
+  </svg>
+</div>
+<input type="hidden" id="review-rating" required>
+
+
+    <input type="hidden" id="review-rating" required>
+    <button type="submit">Invia recensione</button>
+  </form>
+</section>
+
+
+
+
+<section class="request-section">
+    <h2>Se vuoi vendere, scrivi!</h2>
+
+    <form class="request-form">
+        <input type="text" placeholder="Il tuo nome" required>
+        <input type="email" placeholder="La tua email" required>
+        <textarea placeholder="Inserisci le informazioni..." required></textarea>
+        <button type="submit">Invia</button>
+    </form>
+</section>
+
+
+
+<footer>
+    <div class="footer-container">
+        <p><strong>E.C.M.</strong></p>
+        <p>Via 1</p>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">Tik Tok</a>
+        <p>Tel: ... ... ....</p>
+        <p>Email: ECMaffitti@gmail.com</p>
+    </div>
+</footer>
+
+<script>
+function apriMenu() {
+    document.getElementById("sidebar").classList.add("aperta");
+}
+
+function chiudiMenu() {
+    document.getElementById("sidebar").classList.remove("aperta");
+}
+</script>
+
+<script>
+const cittaDisponibili = {
+  "milano": "milano.html",
+  "roma": "roma.html",
+  "torino": "torino.html",
+  "napoli": "napoli.html",
+  "bologna": "bologna.html",
+  "firenze": "firenze.html"
+};
+
+function cercaZona() {
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  const container = document.getElementById("risultato-container");
+
+  // Cerca se l'input contiene una città disponibile
+  let cittaTrovata = null;
+
+  for (let citta in cittaDisponibili) {
+    if (input.includes(citta)) {
+      cittaTrovata = citta;
+      break;
+    }
+  }
+
+  if (cittaTrovata) {
+    container.innerHTML = `
+      <p style="color:white; margin-top:20px;">✅ Città trovata: ${cittaTrovata.charAt(0).toUpperCase() + cittaTrovata.slice(1)}</p>
+      <button class="vedi-btn" onclick="vaiAllaZona('${cittaDisponibili[cittaTrovata]}')">
+        Vedi edifici in questa città
+      </button>
+    `;
+  } else {
+    container.innerHTML = `
+      <p style="color:white; margin-top:20px;">
+        ❌ Nessun immobile disponibile in questa città.
+      </p>
+    `;
+  }
+}
+
+function vaiAllaZona(pagina) {
+  window.location.href = pagina;
+}
+</script>
+
+<script>
+// ===================== STELLE SVG CLICCABILI =====================
+const svgStars = document.querySelectorAll(".star");
+let selectedRating = 0;
+
+svgStars.forEach((star, idx) => {
+  // Hover: mostra anteprima stelle
+  star.addEventListener("mouseover", () => {
+    svgStars.forEach((s, i) => {
+      if(i <= idx) s.classList.add("hovered");
+      else s.classList.remove("hovered");
+    });
+  });
+
+  star.addEventListener("mouseout", () => {
+    svgStars.forEach(s => s.classList.remove("hovered"));
+  });
+
+  // Click: seleziona voto
+  star.addEventListener("click", () => {
+    selectedRating = star.dataset.value;
+    document.getElementById("review-rating").value = selectedRating;
+
+    svgStars.forEach((s, i) => {
+      if(i < selectedRating) s.classList.add("selected");
+      else s.classList.remove("selected");
+    });
+  });
+});
+
+// ===================== GESTIONE RECENSIONI =====================
+const reviewForm = document.getElementById("review-form");
+const reviewsContainer = document.getElementById("reviews-container");
+const reviewCount = document.getElementById("review-count");
+const reviewAverage = document.getElementById("review-average");
+
+// Funzione per aggiornare contatore e media stelle
+function aggiornaStats() {
+  const reviews = reviewsContainer.querySelectorAll(".review");
+  const numReviews = reviews.length;
+  let totalStars = 0;
+
+  reviews.forEach(review => {
+    const starsText = review.querySelector(".stars-count")?.textContent || '';
+    const starsCount = parseInt(starsText) || review.querySelector("p strong")?.nextSibling.textContent?.match(/⭐/g)?.length || 0;
+    totalStars += starsCount;
+  });
+
+  reviewCount.textContent = `Recensioni: ${numReviews}`;
+  reviewAverage.textContent = `Valutazione media: ${numReviews ? (totalStars / numReviews).toFixed(1) : 0} ⭐`;
+}
+
+// Gestione invio recensione
+reviewForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("review-name").value.trim();
+  const text = document.getElementById("review-text").value.trim();
+  const rating = document.getElementById("review-rating").value;
+
+  if(name && text && rating) {
+    // Crea nuova recensione
+    const newReview = document.createElement("div");
+    newReview.classList.add("review");
+
+    // Aggiunge la recensione con stelline in Unicode per semplicità
+    newReview.innerHTML = `
+      <p><strong>${name}</strong> <span class="stars-count">${rating}</span> ${'⭐'.repeat(rating)}</p>
+      <p>${text}</p>
+      <button class="delete-btn" onclick="eliminaRecensione(this)">Elimina</button>
+    `;
+
+    reviewsContainer.prepend(newReview);
+
+    // Resetta modulo
+    reviewForm.reset();
+    svgStars.forEach(s => s.classList.remove("selected"));
+    selectedRating = 0;
+
+    aggiornaStats();
+  }
+});
+
+// Funzione elimina recensione
+function eliminaRecensione(button) {
+  button.parentElement.remove();
+  aggiornaStats();
+}
+
+// Aggiorna statistiche all’avvio per recensioni vecchie
+aggiornaStats();
+</script>
+
+
+
+
+</body>
+</html>
+
